@@ -1,20 +1,16 @@
-from dash.dependencies import Input, Output, State
-#from dash_app import app
-from dashApp import apps
-
 import dash
+from dashApp import apps
+from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
-#from utils.constants import MENU_ITEMS
-import datetime
 # =============================================================================
 # Callbacks
 # =============================================================================
-# MENU_ITEMS = ("basic_cards", "social_cards", "tab_cards", "basic_boxes", "value_boxes",)# "gallery_1", "tab_gallery_2")
-# MENU_ITEMS[1]
-# MENU_ITEMS.index(input_id.split( '_', maxsplit=1)[1])
 MENU_ITEMS = ( "basic_cards","social_cards","tab_cards","basic_boxes","value_boxes","gallery_1", "gallery_2","stock" )
-
+### Page Location 
+#menus = [(f"{menu}", f"/{menu}") for menu in MENU_ITEMS]
+#home_webpath = "/home"
+#menu[MENU_ITEMS.index("home")][1]
 
 def activate(input_id, 
              basic_cards, social_cards, tab_cards, basic_boxes, value_boxes, gallery_1, gallery_2, stock ):
@@ -52,5 +48,3 @@ def update_breadcrumbs( nClick1, nClick2, nClick3, nClick4, nClick5, nClick6, nC
     else:
         input_id = ctx.triggered[0]['prop_id'].split('.')[0].split('_', maxsplit=1)[1]
     return eval(input_id)
-
-

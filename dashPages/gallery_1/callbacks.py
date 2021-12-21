@@ -1,5 +1,4 @@
-#from dash_app import app
-from mainApp import apps
+from main import apps
 from dash.dependencies import Input, Output
 
 from dashPages.gallery_1.model import dataframe
@@ -14,9 +13,9 @@ from sklearn.cluster import KMeans
     [ Input("x-variable",    "value"),
       Input("y-variable",    "value"),
       Input("cluster-count", "value"),],)
-def make_graph(x, y, n_clusters):
+def make_graph(x, y, nClusters):
     # minimal input validation, make sure there's at least one cluster
-    km = KMeans(n_clusters=max(n_clusters, 1))
+    km = KMeans(n_clusters=max(nClusters, 1))
     iris = dataframe()
     df = iris.loc[:, [x, y]]
     km.fit(df.values)
@@ -32,7 +31,7 @@ def make_graph(x, y, n_clusters):
             marker={"size": 8},
             name="Cluster {}".format(c),
         )
-        for c in range(n_clusters)
+        for c in range(nClusters)
     ]
 
     data.append(

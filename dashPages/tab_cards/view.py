@@ -1,8 +1,6 @@
-import dash_admin_components as dac
-
 import dash_bootstrap_components as dbc
-from dash import dcc 
-from dash import html 
+from dash import dcc, html 
+import dash_admin_components as dac
 
 #from pages.tab_cards.model import dataframe
          

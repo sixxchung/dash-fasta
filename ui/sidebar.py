@@ -1,10 +1,6 @@
 import dash_bootstrap_components as dbc
-#import dash_html_components as html
-from dash import html
-# https://docs-dash-admin-components.herokuapp.com/l/components/sidebar
+from dash import dcc, html 
 import dash_admin_components as dac
-
-#from utils.constants import MENU_ITEMS 
 
 # Sidebar
 subitems = [
@@ -42,7 +38,7 @@ sidebar = dac.Sidebar(
 	skin="dark",
     color="primary",
 	brand_color="primary",
-    url="https://quantee.ai",
+    url="https://onesixx.com",
     #src="https://adminlte.io/themes/AdminLTE/dist/img/user2-160x160.jpg",
     src="assets/user-01.jpg",
     elevation=3,

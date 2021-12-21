@@ -1,6 +1,5 @@
 import dash_bootstrap_components as dbc
-from dash import dcc 
-from dash import html 
+from dash import dcc, html 
 import dash_admin_components as dac
 
 from dashPages.gallery_1.model import dataframe
