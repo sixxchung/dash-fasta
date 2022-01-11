@@ -1,20 +1,18 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.wsgi import WSGIMiddleware
+from fastapi.responses import RedirectResponse
 
 from dashApp import apps
 
 #----------------------------------------------------------------
 appMain = FastAPI()
+
 @appMain.get("/")
-def read_main():
-    return {
-        "routes": [
-            {"method":"GET", "path":"/",       "summary":"Landing"},
-            {"method":"GET", "path":"/status", "summary":"App status"},
-            {"method":"GET", "path":"/dash",   "summary":"Sub-mounted Dash application"},
-        ]
-    }
+async def redirect_root():
+    response = RedirectResponse("http://127.0.0.1:8000/dash")
+    return response
+
 
 #----------------------------------------------------------------
 @appMain.get("/status")
