@@ -10,14 +10,14 @@ from ui.main_content import layout
 import datetime
 import os
 
-def create_dash_app(requests_pathname_prefix: str = None) -> dash.Dash:
+def create_dashApp(requests_pathname_prefix: str = None) -> dash.Dash:
     # =============================================================================
-    # Dash App and Flask Server
+    # DashApp and Flask Server
     # =============================================================================
     server = flask.Flask(__name__)
     #server.secret_key = os.environ.get('secret_key', 'secret')
 
-    app = dash.Dash(
+    dashApp = dash.Dash(
         name=__name__, 
         server=server, 
         #routes_pathname_prefix=requests_pathname_prefix,
@@ -34,10 +34,10 @@ def create_dash_app(requests_pathname_prefix: str = None) -> dash.Dash:
             {"name": "viewport", "content": "width=device-width, initial-scale=1"}
         ]     
     )
-    #app.scripts.config.serve_locally = False
+    #dashApp.scripts.config.serve_locally = False
     #dcc._js_dist[0]['external_url'] = 'https://cdn.plot.ly/plotly-basic-latest.min.js'
-    app.layout = layout
+    dashApp.layout = layout
     
-    return app
+    return dashApp
 
-apps = create_dash_app(requests_pathname_prefix="/dash/")
+dash_app = create_dashApp(requests_pathname_prefix="/dash/")

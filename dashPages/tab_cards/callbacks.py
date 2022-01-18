@@ -1,9 +1,8 @@
-from main import apps
+from appdash import dash_app
 from dash.dependencies      import Input, Output, State
-
 from dashPages.tab_cards.model  import text_1, text_2, text_3
 
-@apps.callback(
+@dash_app.callback(
     Output('tab_box_1', 'children'),
     [ Input('tab_box_1_menu', 'active_tab')] )
 def display_tabbox1(active_tab):
@@ -14,7 +13,7 @@ def display_tabbox1(active_tab):
     elif active_tab == 'tab_box_1_tab3':
         return text_3
 
-@apps.callback(
+@dash_app.callback(
     Output('tab_box_2', 'children'),
     [Input('tab_box_2_menu', 'active_tab')] )
 def display_tabbox2(active_tab):

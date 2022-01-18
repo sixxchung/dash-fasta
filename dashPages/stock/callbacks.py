@@ -1,13 +1,9 @@
-#from dashapp import app
-#from mainApp import apps
-from dashApp import apps
-
-
+from appdash import dash_app
 from dash.dependencies      import Input, Output, State
 
 from dashPages.stock.model  import df
 
-@apps.callback(Output('my-graph', 'figure'),
+@dash_app.callback(Output('my-graph', 'figure'),
                 [Input('my-dropdown', 'value')])
 def update_graph(selected_dropdown_value):
     dff = df[df['Stock'] == selected_dropdown_value]

@@ -1,4 +1,4 @@
-from main import apps
+from appdash import dash_app
 from dash.dependencies import Input, Output
 
 from dashPages.gallery_1.model import dataframe
@@ -8,7 +8,7 @@ import plotly.express as px
 
 from sklearn.cluster import KMeans
 
-@apps.callback(
+@dash_app.callback(
     Output("cluster-graph", "figure"),
     [ Input("x-variable",    "value"),
       Input("y-variable",    "value"),
@@ -56,13 +56,13 @@ def filter_options(v):
     ]
 
 # functionality is the same for both dropdowns, so we reuse filter_options
-# @apps.callback(
+# @dash_app.callback(
 #     Output("x-variable", "options"), 
 #     [Input("y-variable", "value")])(
 #     filter_options
 # )
 
-# @apps.callback(
+# @dash_app.scallback(
 #     Output("y-variable", "options"), 
 #     [Input("x-variable", "value")])(
 #     filter_options

@@ -1,10 +1,10 @@
-from main import apps
+from appdash import dash_app
 from dash.dependencies import Input, Output
 
 from dashPages.gallery_2.model import dataframe
 import plotly.express as px
 
-@apps.callback(
+@dash_app.callback(
     Output('graph-with-slider', 'figure'),
     Input('year-slider', 'value'))
 def update_figure(selected_year):

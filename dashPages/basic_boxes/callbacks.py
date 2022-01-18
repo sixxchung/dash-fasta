@@ -1,9 +1,9 @@
-from main import apps
+from appdash import dash_app
 from dash.dependencies      import Input, Output, State
 
 from components.example_plots     import plot_scatter
 # Update figure on slider change
-@apps.callback(
+@dash_app.callback(
     Output('box-graph', 'figure'),
     [Input('controlbar-slider', 'value')] )
 def update_box_graph(value):

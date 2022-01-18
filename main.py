@@ -3,25 +3,24 @@ from fastapi import FastAPI
 from fastapi.middleware.wsgi import WSGIMiddleware
 from fastapi.responses import RedirectResponse
 
-from dashApp import apps
+from appdash import dash_app
 
 #----------------------------------------------------------------
-appMain = FastAPI()
+app = FastAPI()
 
-@appMain.get("/")
+@app.get("/")
 async def redirect_root():
-    response = RedirectResponse("http://127.0.0.1:8000/dash")
+    response = RedirectResponse("http://127.0.0.1:8888/dash")
     return response
 
-
 #----------------------------------------------------------------
-@appMain.get("/status")
+@app.get("/status")
 def get_status():
     return {"status": "ok"}
 
 #----------------------------------------------------------------
 import routes
-appMain.mount("/dash", WSGIMiddleware(apps.server))
+app.mount("/dash", WSGIMiddleware(dash_app.server))
 
 if __name__ == "__main__":
-    uvicorn.run(appMain, port=8000)
+    uvicorn.run(app, port=8888)

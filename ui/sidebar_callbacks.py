@@ -1,5 +1,5 @@
 import dash
-from dashApp import apps
+from appdash import dash_app
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
@@ -23,7 +23,7 @@ def activate(input_id,
         pass
     return menu_status
 
-@apps.callback(
+@dash_app.callback(
     [Output(f"content_{menu}", "active") for menu in MENU_ITEMS],
     [ Input(f'menu_{menu}', 'n_clicks')  for menu in MENU_ITEMS] )
 def activate_page_content(basic_cards, social_cards, tab_cards, basic_boxes, value_boxes, gallery_1, gallery_2, stock):
@@ -36,7 +36,7 @@ def activate_page_content(basic_cards, social_cards, tab_cards, basic_boxes, val
     return activate(input_id, 
                     basic_cards, social_cards, tab_cards, basic_boxes, value_boxes, gallery_1, gallery_2, stock)
 
-@apps.callback(
+@dash_app.callback(
     Output('mybread', 'text'),
     [ Input(f"menu_{menu}", "n_clicks") for menu in MENU_ITEMS],
     [ State(f"menu_{menu}", "label")    for menu in MENU_ITEMS] )
