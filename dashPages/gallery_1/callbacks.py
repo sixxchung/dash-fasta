@@ -1,4 +1,4 @@
-from appdash import dash_app
+from app_dash import dash_app
 from dash.dependencies import Input, Output
 
 from dashPages.gallery_1.model import dataframe

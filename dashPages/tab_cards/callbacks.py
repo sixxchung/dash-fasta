@@ -1,4 +1,4 @@
-from appdash import dash_app
+from app_dash import dash_app
 from dash.dependencies      import Input, Output, State
 from dashPages.tab_cards.model  import text_1, text_2, text_3
 
